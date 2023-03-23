@@ -1,7 +1,7 @@
 .popup__submit {
-    width: calc(100% - 72px);
+    width: calc(100% - 46px);
     height: 50px;
-    margin: 18px auto 37px auto;
+    margin: 18px auto 25px auto;
     border-radius: 2px;
     outline: none;
     box-sizing: border-box;
@@ -10,7 +10,6 @@
     background-color: black;
     color: white;
     cursor: pointer;
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -20,4 +19,12 @@
 }
 .popup__submit:hover {
     opacity: 0.8;
+}
+
+@media screen and (max-width: 320px) {
+    .cover__title {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+    }
 }

@@ -7,3 +7,10 @@
 .popup_close:hover {
     opacity: 0.6;
 }
+
+@media screen and (max-width: 320px) {
+    .popup_close {
+        margin: 0 0 400px;
+        padding: 0 0 0 250px;
+    }
+}
