@@ -1,0 +1,6 @@
+.elements {
+    margin: 0 0 67px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
