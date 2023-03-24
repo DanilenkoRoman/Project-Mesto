@@ -5,3 +5,11 @@
     font-size: 18px;
     line-height: 22px;
 }
+
+@media screen and (max-width: 550px) {
+    .popup__name {
+        font-size: 18px;
+        line-height: 22px;
+        width: calc(100% - 44px);
+    }
+}

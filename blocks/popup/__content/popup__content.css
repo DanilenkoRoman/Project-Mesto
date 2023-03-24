@@ -15,10 +15,8 @@
     line-height: 1;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 470px) {
     .popup__content {
-        max-width: 282px;
-        min-height: 322px;
-        position: absolute;
+        width: calc(100% - 38px);
     }
 }

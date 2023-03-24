@@ -1,16 +1,15 @@
-.popup_close {
+.popup__close {
     color: white;
     margin: 0 0 8px 473px;
     cursor: pointer;
 }
 
-.popup_close:hover {
+.popup__close:hover {
     opacity: 0.6;
 }
 
-@media screen and (max-width: 320px) {
-    .popup_close {
-        margin: 0 0 400px;
-        padding: 0 0 0 250px;
+@media screen and (max-width: 520px) {
+    .popup__close {
+        margin: 0 0 16px calc(100% - 68px);
     }
 }
