@@ -8,11 +8,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: 'Inter';
+    line-height: 1;
     padding: 25px 0 0;
     box-sizing: border-box;
     border-radius: 10px;
-    font-family: 'Inter';
-    line-height: 1;
 }
 
 @media screen and (max-width: 470px) {

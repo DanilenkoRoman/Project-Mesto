@@ -11,7 +11,6 @@ const profileDetail = document.querySelector('.profile__details')
 editButtonLink.addEventListener('click', () => {
     console.log(moreInfoPopup)
     moreInfoPopup.classList.add('popup__open')
-
     nameInput.value = profileName.textContent;
     detailInput.value = profileDetail.textContent;
     })
