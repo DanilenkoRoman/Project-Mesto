@@ -1,5 +1,5 @@
-const editButtonLink = document.querySelector('.profile__edit-button-link');
-const moreInfoPopup = document.querySelector('.popup_type_more-info');
+const editButtonLink = document.querySelector('.profile__edit-button');
+const moreInfoPopup = document.querySelector('.popup');
 const moreInfoPopupClose = moreInfoPopup.querySelector('.popup__close');
 const nameInput = moreInfoPopup.querySelector('.popup__input_type_name');
 const moreInfoPopupForm = moreInfoPopup.querySelector('.popup__form');
