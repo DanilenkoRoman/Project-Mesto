@@ -2,11 +2,14 @@ const editButtonLink = document.querySelector('.profile__edit-button-link');
 const moreInfoPopup = document.querySelector('.popup_type_more-info');
 const moreInfoPopupClose = moreInfoPopup.querySelector('.popup__close');
 const nameInput = moreInfoPopup.querySelector('.popup__input_type_name');
-const moreInfoPopupSubmit = moreInfoPopup.querySelector('.popup__submit');
 const moreInfoPopupForm = moreInfoPopup.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
-const detailInput = moreInfoPopup.querySelector('.popup__input_type_detail')
-const profileDetail = document.querySelector('.profile__details')
+const detailInput = moreInfoPopup.querySelector('.popup__input_type_detail');
+const profileDetail = document.querySelector('.profile__details');
+
+const closePopup = () => {
+    moreInfoPopup.classList.remove('popup__opened');
+}
 
 editButtonLink.addEventListener('click', () => {
     moreInfoPopup.classList.add('popup__opened')
@@ -15,12 +18,12 @@ editButtonLink.addEventListener('click', () => {
 })
 
 moreInfoPopupClose.addEventListener('click', () => {
-    moreInfoPopup.classList.remove('popup__opened')
+    closePopup();
 })
 
 moreInfoPopupForm.addEventListener('submit', (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileDetail.textContent = detailInput.value;
-    moreInfoPopup.classList.remove('popup__opened')
+    closePopup();
 })
