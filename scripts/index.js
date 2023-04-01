@@ -6,13 +6,14 @@ const moreInfoPopupForm = moreInfoPopup.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const detailInput = moreInfoPopup.querySelector('.popup__input_type_detail');
 const profileDetail = document.querySelector('.profile__details');
+const popupProfile = document.querySelector(".popup_type_opened");
 
 const closePopup = () => {
-    moreInfoPopup.classList.remove('popup__opened');
+    moreInfoPopup.classList.remove('popup_opened');
 }
 
 editButtonLink.addEventListener('click', () => {
-    moreInfoPopup.classList.add('popup__opened')
+    moreInfoPopup.classList.add('popup_opened')
     nameInput.value = profileName.textContent;
     detailInput.value = profileDetail.textContent;
 })
