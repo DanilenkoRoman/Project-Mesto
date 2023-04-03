@@ -6,7 +6,6 @@ const moreInfoPopupForm = moreInfoPopup.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const detailInput = moreInfoPopup.querySelector('.popup__input_type_detail');
 const profileDetail = document.querySelector('.profile__details');
-const popupProfile = document.querySelector(".popup_type_opened");
 
 const closePopup = () => {
     moreInfoPopup.classList.remove('popup_opened');
