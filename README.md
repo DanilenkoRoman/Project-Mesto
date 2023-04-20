@@ -8,5 +8,6 @@
 • CSS
 • HTML
 • JavaScript
+• Git
 
 * [Ссылка на GitHub](https://danilenkoroman.github.io/Project-Mesto/)

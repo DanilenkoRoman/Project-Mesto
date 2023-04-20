@@ -44,7 +44,7 @@
     </div>
     <!-- Начало popup редактирования профиля -->
     <section id="profile-popup" class="popup">
-      <div class="popup__container">
+      <article class="popup__container">
         <h2 class="popup__name">Редактировать профиль</h2>
         <form name="profile-name" class="popup__form">
           <input type="text" class="popup__input popup__input_type_name" name="name">
@@ -52,11 +52,11 @@
           <button type="submit" class="popup__submit" aria-label="Сохранить">Сохранить</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close"></button>
-      </div>
+      </article>
     </section>
       <!-- Начало popup добавления карточки -->
       <section class="popup popup_add">
-        <div class="popup__container">
+        <article class="popup__container">
             <h2 class="popup__name">Новое место</h2>
             <form name="profile-name" class="popup__form popup__form_add">
                 <input class="popup__input popup__input_type_name" name="name" placeholder="Название">
@@ -64,7 +64,15 @@
                 <button type="submit" class="popup__submit">Создать</button>
             </form>
             <button type="button" class="popup__close"></button>
-        </div>
+        </article>
+    </section>
+      <!-- Увеличение изображения по клику -->
+      <section class="popup popup_image">
+        <figure class="popup__image-container">
+            <button type="button" class="popup__close"></button>    
+            <img class="popup__image" src="#" alt="">    
+            <figcaption class="popup__image-name"></figcaption>    
+        </figure>
     </section>
   <!-- Шаблон карточек -->
   <template class="elements-template">

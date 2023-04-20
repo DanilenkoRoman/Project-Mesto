@@ -6,13 +6,21 @@ const moreInfoPopupForm = moreInfoPopup.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const detailInput = moreInfoPopup.querySelector('.popup__input_type_detail');
 const profileDetail = document.querySelector('.profile__details');
+
 const buttonAdd = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup_add');
-
 const handlePopupAdd = document.querySelector('.popup__form_add');
-const closePopupSubmit = popupAdd.querySelector('.popup__submit')
 
-console.log(handlePopupAdd);
+const closePopupSubmit = popupAdd.querySelector('.popup__submit');
+
+const handlePopupImage = document.querySelector('.popup_image');
+const closePopupImage = handlePopupImage.querySelector('.popup__close');
+const popupImage = handlePopupImage.querySelector('.popup__image');
+const popupName = handlePopupImage.querySelector('.popup__image-name');
+
+closePopupImage.addEventListener('click', () => {
+    handlePopupImage.classList.remove('popup_opened')
+})
 
 const elements = document.querySelector('.elements')
 const elementsTemplate = document.querySelector('.elements-template')
@@ -22,24 +30,37 @@ const createElement = (elementData) => {
         .querySelector('.element')
         .cloneNode(true);
 
-    const elementName = element.querySelector('.element__name');
-    const elementPhoto = element.querySelector('.element__photo');
+const cardImage = element.querySelector('.element__photo')
+const cardName = element.querySelector('.element__name')        
+const elementName = element.querySelector('.element__name');
+const elementPhoto = element.querySelector('.element__photo');
+
+    cardName.textContent = elementData.name;
+    cardImage.src = elementData.link;
+    cardImage.alt = elementData.name;
 
     elementName.textContent = elementData.name;
     elementPhoto.src = elementData.link;
     elementPhoto.alt = elementData.name;
 
-    const likeElement = element.querySelector('.element__like-button')
-    const deleteElement = element.querySelector('.element__delete')
+    cardImage.addEventListener('click', () => {
+        handlePopupImage.classList.add('popup_opened')
+        popupImage.src = elementData.link;
+        popupImage.alt = elementData.name;
+        popupName.textContent = elementData.name;
+    })
 
-    const handleLike = () => {
+const likeElement = element.querySelector('.element__like-button')
+const deleteElement = element.querySelector('.element__delete')
+
+const handleLike = () => {
         likeElement.classList
-            .toggle('element__like-button_active')
-    }
+        .toggle('element__like-button_active')
+}
 
-    const handleDelete = () => {
-        element.remove();
-    }
+const handleDelete = () => {
+    element.remove();
+}
 
     likeElement.addEventListener('click', handleLike);
     deleteElement.addEventListener('click', handleDelete);
@@ -98,8 +119,6 @@ const PopupAddSubmit = (event) => {
 
     const name = nameInput.value;
     const link = linkInput.value;
-
-    console.log(name, link)
 
     const elementData = {
         name,
