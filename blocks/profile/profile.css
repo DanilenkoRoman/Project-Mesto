@@ -1,15 +1,15 @@
 .profile {
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    margin: 0 0 47.25px 0;
-    align-items: center;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  margin: 0 0 47.25px 0;
+  align-items: center;
 }
 
 @media screen and (max-width: 700px) {
-    .profile {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 38.25px 0 0 0;
-    }
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 38.25px 0 0 0;
+  }
 }

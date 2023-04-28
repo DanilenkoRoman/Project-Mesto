@@ -1,16 +1,16 @@
 .element__delete {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    transform: translate(244px, 20px);
-    min-width: 18px;
-    min-height: 19px;
-    border: none;
-    background: transparent url('../../../images/Trash.svg') no-repeat;
-    transition: all 0.4s ease-in-out;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transform: translate(244px, 20px);
+  min-width: 18px;
+  min-height: 19px;
+  border: none;
+  background: transparent url("../../../images/Trash.svg") no-repeat;
+  transition: all 0.4s ease-in-out;
 }
 
 .element__delete:hover {
-    opacity: 0.6;
-    cursor: pointer;
+  opacity: 0.6;
+  cursor: pointer;
 }

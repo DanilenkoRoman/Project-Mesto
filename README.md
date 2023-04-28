@@ -5,9 +5,10 @@
 Проект создан с использованием HTML, CSS и JavaScript. Сайт оптимизирован для просмотра на экранах от 320 пикселей.
 
 # Стек
+
 • CSS
 • HTML
 • JavaScript
 • Git
 
-* [Ссылка на GitHub](https://danilenkoroman.github.io/Project-Mesto/)
+- [Ссылка на GitHub](https://danilenkoroman.github.io/Project-Mesto/)

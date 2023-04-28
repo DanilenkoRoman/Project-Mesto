@@ -1,16 +1,16 @@
 .page {
-    max-width: 880px;
-    margin: 0 auto;
+  max-width: 880px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 900px) {
-    .page {
-        max-width: calc(100% - 38px);
-    }
+  .page {
+    max-width: calc(100% - 38px);
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .page {
-        max-width: 320px;
-    }
+  .page {
+    max-width: 320px;
+  }
 }
