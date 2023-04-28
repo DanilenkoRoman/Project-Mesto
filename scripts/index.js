@@ -45,10 +45,6 @@ const createElement = (elementData) => {
   elementPhoto.src = elementData.link;
   elementPhoto.alt = elementData.name;
 
-  elementName.textContent = elementData.name;
-  elementPhoto.src = elementData.link;
-  elementPhoto.alt = elementData.name;
-
   elementPhoto.addEventListener("click", () => {
     openPopup(handlePopupImage);
     popupImage.src = elementData.link;
@@ -77,8 +73,12 @@ const renderElement = (element) => {
   elements.prepend(element);
 };
 
+const renderElementAdd = (element) => {
+  elements.append(element)
+};
+
 initialCards.forEach((element) => {
-  renderElement(createElement(element));
+  renderElementAdd(createElement(element));
 });
 
 editButtonLink.addEventListener("click", () => {
@@ -95,7 +95,7 @@ moreInfoPopupForm.addEventListener("submit", (event) => {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileDetail.textContent = detailInput.value;
-  closePopup();
+  closePopup(moreInfoPopup);
 });
 
 buttonAdd.addEventListener("click", () => {
