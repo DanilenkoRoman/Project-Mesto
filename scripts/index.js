@@ -13,7 +13,7 @@ const handlePopupAdd = document.querySelector(".popup__form_add");
 
 const closePopupSubmit = popupAdd.querySelector(".popup__submit");
 
-const handlePopupImage = document.querySelector(".popup_image");
+const handlePopupImage = document.querySelector(".popup_type_image");
 const closePopupImage = handlePopupImage.querySelector(".popup__close");
 const popupImage = handlePopupImage.querySelector(".popup__image");
 const popupName = handlePopupImage.querySelector(".popup__image-name");
@@ -23,7 +23,7 @@ function openPopup(popupElement) {
 }
 
 function closePopup(popupElement) {
-  popupElement.classList.remove("popup_opened")
+  popupElement.classList.remove("popup_opened");
 }
 
 closePopupImage.addEventListener("click", () => {
