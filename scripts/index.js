@@ -1,6 +1,5 @@
 const editButtonLink = document.querySelector(".profile__edit-button");
-const moreInfoPopup = document.querySelector(".popup");
-const popupElement = document.querySelector(".popup_type_edit");
+const moreInfoPopup = document.querySelector(".popup_type_edit-profile");
 
 const moreInfoPopupClose = moreInfoPopup.querySelector(".popup__close");
 const nameInput = moreInfoPopup.querySelector(".popup__input_type_name");
@@ -20,24 +19,13 @@ const closePopupImage = handlePopupImage.querySelector(".popup__close");
 const popupImage = handlePopupImage.querySelector(".popup__image");
 const popupName = handlePopupImage.querySelector(".popup__image-name");
 
-function openPopup(popupElement) {
+const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
 }
-function closePopup(popupElement) {
+
+const closePopup = (popupElement) => {
   popupElement.classList.remove("popup_opened");
 }
-
-/*function openPopup(popupElement) {
-  editButtonLink.addEventListener("click", () => {
-    popupElement.classList.add("popup_opened");
-  });
-};
-
-function closePopup(popupElement) {
-  moreInfoPopupClose.addEventListener("click", () => {
-    popupElement.classList.remove("popup_opened");
-  });
-};*/
 
 closePopupImage.addEventListener("click", () => {
   closePopup(handlePopupImage);
