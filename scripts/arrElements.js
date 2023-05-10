@@ -24,3 +24,14 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1630763741321-16e7bff61e2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
   },
 ];
+
+const config = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__submit-btn",
+  inactiveButtonClass: "popup__submit-btn_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+export { initialCards, config };
