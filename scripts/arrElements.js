@@ -25,7 +25,7 @@ const initialCards = [
   },
 ];
 
-const config = {
+const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__submit-btn",
@@ -34,4 +34,4 @@ const config = {
   errorClass: "popup__error_visible",
 };
 
-export { initialCards, config };
+export { initialCards, validationConfig };
