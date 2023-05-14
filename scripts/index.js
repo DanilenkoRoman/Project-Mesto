@@ -23,7 +23,7 @@ const openPopup = (popupElement) => {
 };
 
 const closePopup = (popupElement) => {
-  popupElement.classList.remove('popup_opened')
+  popupElement.classList.remove("popup_opened")
   document.removeEventListener("keydown", closePopupEsc)
 };
 
@@ -38,9 +38,9 @@ const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector(".elements-template");
 
 const createCard = (cardData) => {
-const card = cardTemplate.content 
-    .querySelector(".element") 
-    .cloneNode(true); 
+const card = cardTemplate.content
+    .querySelector(".element")
+    .cloneNode(true);
 
 const elementName = card.querySelector(".element__name");
 const elementPhoto = card.querySelector(".element__photo");
@@ -108,8 +108,9 @@ moreInfoPopupForm.addEventListener("submit", (event) => {
 
 buttonAdd.addEventListener("click", () => {
   openPopup(popupAdd)
-  toggleButtonValidity(popupAddForm, validationConfig)
 
+const popupAddForm = document.querySelector(".popup__form_add");
+  toggleButtonValidity(popupAddForm, validationConfig);
 });
 
 const handleCardFormSubmit = (event) => {
