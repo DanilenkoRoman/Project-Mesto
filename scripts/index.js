@@ -82,7 +82,7 @@ const appendCard = (element) => {
 };
 
 initialCards.forEach((element) => {
-  appendCard (createCard(element));
+  appendCard(createCard(element, openPopup));
 });
 
 cardElement.addEventListener("click", () => {
@@ -111,11 +111,14 @@ buttonAdd.addEventListener("click", () => {
 
 const popupAddForm = document.querySelector(".popup__form_add");
   toggleButtonValidity(popupAddForm, validationConfig);
+  popupAddForm.reset()
 });
 
 const handleCardFormSubmit = (event) => {
   event.preventDefault();
 
+const nameInput = popupAddForm.querySelector(".popup__input_type_name");
+const linkInput = popupAddForm.querySelector(".popup__input_type_link");
 const name = nameInput.value;
 const link = linkInput.value;
 const elementData = {
@@ -123,10 +126,7 @@ const elementData = {
     link,
   };
 
-const nameInput = popupAddForm.querySelector(".popup__input_type_name");
-const linkInput = popupAddForm.querySelector(".popup__input_type_link");
-
-  prependCard (createCard(elementData));
+  prependCard(createCard(elementData));
   closePopup(popupAdd);
 };
 
@@ -135,9 +135,9 @@ function closePopupByClickOverlay(evt) {
 }
 
 popups.forEach((popup) => {
-  const closeButton = popup.querySelector(".popup__close")
-  closeButton.addEventListener("click", () => closePopup(popup))
-  popup.addEventListener("click", closePopupByClickOverlay)
+  const closeButton = popup.querySelector(".popup__close");
+  closeButton.addEventListener("click", () => closePopup(popup));
+  popup.addEventListener("click", closePopupByClickOverlay);
 });
 
 popupAddForm.addEventListener("submit", handleCardFormSubmit);
