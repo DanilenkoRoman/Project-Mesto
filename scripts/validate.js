@@ -31,7 +31,9 @@ function checkInputValidity(input, validationConfig) {
 }
 
 const toggleButtonState = (form, validationConfig) => {
-  const submitButton = form.querySelector(validationConfig.submitButtonSelector);
+  const submitButton = form.querySelector(
+    validationConfig.submitButtonSelector
+  );
   if (form.checkValidity()) {
     enableButton(submitButton, validationConfig);
   } else {
@@ -40,10 +42,10 @@ const toggleButtonState = (form, validationConfig) => {
 };
 
 const setSubmitListener = (form, validationConfig) => {
-  form.addEventListener('submit', (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
-    toggleButtonState(form, validationConfig)
-  } );
+    toggleButtonState(form, validationConfig);
+  });
 };
 
 function setEventListeners(form, validationConfig) {
