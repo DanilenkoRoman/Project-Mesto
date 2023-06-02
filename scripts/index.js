@@ -1,12 +1,12 @@
 import { initialCards, validationConfig } from "./arrElements.js";
-import { setInputInvalidState, toggleButtonValidity } from "./validate.js";
+import { setInputInvalidState, toggleButtonState } from "./validate.js";
 
-const cardElement = document.querySelector(".profile__edit-button");
-const moreInfoPopup = document.querySelector(".popup_type_edit-profile");
-const nameInput = moreInfoPopup.querySelector(".popup__input_type_name");
-const moreInfoPopupForm = moreInfoPopup.querySelector(".popup__form");
+const buttonOpenEditProfilePopup = document.querySelector(".profile__edit-button");
+const profilePopup = document.querySelector(".popup_type_edit-profile");
+const nameInput = profilePopup.querySelector(".popup__input_type_name");
+const profilePopupForm = profilePopup.querySelector(".popup__form");
 const profileName = document.querySelector(".profile__name");
-const detailInput = moreInfoPopup.querySelector(".popup__input_type_detail");
+const detailInput = profilePopup.querySelector(".popup__input_type_detail");
 const profileDetail = document.querySelector(".profile__details");
 const buttonAdd = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup_type_add");
@@ -15,7 +15,13 @@ const popupImage = document.querySelector(".popup_type_image");
 const popupImageContainer = popupImage.querySelector(".popup__image");
 const popupName = popupImage.querySelector(".popup__image-name");
 const popups = document.querySelectorAll(".popup");
-const inputs = Array.from(document.querySelectorAll(validationConfig.inputSelector));
+const cardsContainer = document.querySelector(".elements");
+const cardTemplate = document.querySelector(".elements-template");
+const inputs = Array.from(
+  document.querySelectorAll(validationConfig.inputSelector)
+);
+const nameProfile = popupAddForm.querySelector(".popup__input_type_name");
+const linkProfile = popupAddForm.querySelector(".popup__input_type_link");
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
@@ -23,8 +29,8 @@ const openPopup = (popupElement) => {
 };
 
 const closePopup = (popupElement) => {
-  popupElement.classList.remove("popup_opened")
-  document.removeEventListener("keydown", closePopupEsc)
+  popupElement.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupEsc);
 };
 
 const closePopupEsc = (event) => {
@@ -34,16 +40,11 @@ const closePopupEsc = (event) => {
   }
 };
 
-const cardsContainer = document.querySelector(".elements");
-const cardTemplate = document.querySelector(".elements-template");
-
 const createCard = (cardData) => {
-const card = cardTemplate.content
-    .querySelector(".element")
-    .cloneNode(true);
+  const card = cardTemplate.content.querySelector(".element").cloneNode(true);
 
-const elementName = card.querySelector(".element__name");
-const elementPhoto = card.querySelector(".element__photo");
+  const elementName = card.querySelector(".element__name");
+  const elementPhoto = card.querySelector(".element__photo");
 
   elementName.textContent = cardData.name;
   elementPhoto.src = cardData.link;
@@ -56,18 +57,18 @@ const elementPhoto = card.querySelector(".element__photo");
     popupName.textContent = cardData.name;
   });
 
-const likeElement = card.querySelector(".element__like-button");
-const deleteElement = card.querySelector(".element__delete");
+  const cardElement = card.querySelector(".element__like-button");
+  const deleteElement = card.querySelector(".element__delete");
 
-const handleLike = () => {
-  likeElement.classList.toggle("element__like-button_active");
-};
+  const handleLike = () => {
+    cardElement.classList.toggle("element__like-button_active");
+  };
 
-const handleDelete = () => {
-  card.remove();
-};
+  const handleDelete = () => {
+    card.remove();
+  };
 
-  likeElement.addEventListener("click", handleLike);
+  cardElement.addEventListener("click", handleLike);
   deleteElement.addEventListener("click", handleDelete);
 
   return card;
@@ -85,43 +86,39 @@ initialCards.forEach((element) => {
   appendCard(createCard(element, openPopup));
 });
 
-cardElement.addEventListener("click", () => {
-  const formEdit = moreInfoPopupForm.querySelector('.popup__form_edit')
+buttonOpenEditProfilePopup.addEventListener("click", () => {
+  const formEdit = profilePopupForm.querySelector(".popup__form_edit");
 
-  openPopup(moreInfoPopup)
-  nameInput.value = profileName.textContent
-  detailInput.value = profileDetail.textContent
-  toggleButtonValidity(formEdit, validationConfig)
+  openPopup(profilePopup);
+  nameInput.value = profileName.textContent;
+  detailInput.value = profileDetail.textContent;
+  toggleButtonState(formEdit, validationConfig);
 
   inputs.forEach((input) => {
-    const errElement = document.querySelector(`#err-${input.id}`)
-    setInputInvalidState(input, errElement, validationConfig)
-  })
+    const errElement = document.querySelector(`#err-${input.id}`);
+    setInputInvalidState(input, errElement);
+  });
 });
 
-moreInfoPopupForm.addEventListener("submit", (event) => {
-  event.preventDefault()
-  profileName.textContent = nameInput.value
-  profileDetail.textContent = detailInput.value
-  closePopup(moreInfoPopup);
+profilePopupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileDetail.textContent = detailInput.value;
+  closePopup(profilePopup);
 });
 
 buttonAdd.addEventListener("click", () => {
-  openPopup(popupAdd)
-
-const popupAddForm = document.querySelector(".popup__form_add");
-  toggleButtonValidity(popupAddForm, validationConfig);
-  popupAddForm.reset()
+  popupAddForm.reset();
+  openPopup(popupAdd);
+  toggleButtonState(popupAddForm, validationConfig);
 });
 
 const handleCardFormSubmit = (event) => {
   event.preventDefault();
 
-const nameInput = popupAddForm.querySelector(".popup__input_type_name");
-const linkInput = popupAddForm.querySelector(".popup__input_type_link");
-const name = nameInput.value;
-const link = linkInput.value;
-const elementData = {
+  const name = nameProfile.value;
+  const link = linkProfile.value;
+  const elementData = {
     name,
     link,
   };
@@ -131,7 +128,7 @@ const elementData = {
 };
 
 function closePopupByClickOverlay(evt) {
-  if (evt.target === evt.currentTarget) closePopup(evt.currentTarget)
+  if (evt.target === evt.currentTarget) closePopup(evt.currentTarget);
 }
 
 popups.forEach((popup) => {
