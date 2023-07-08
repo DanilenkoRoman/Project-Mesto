@@ -57,18 +57,18 @@ const createCard = (cardData) => {
     popupName.textContent = cardData.name;
   });
 
-  const cardElement = card.querySelector(".element__like-button");
+  const buttonLike = card.querySelector(".element__like-button");
   const deleteElement = card.querySelector(".element__delete");
 
   const handleLike = () => {
-    cardElement.classList.toggle("element__like-button_active");
+    buttonLike.classList.toggle("element__like-button_active");
   };
 
   const handleDelete = () => {
     card.remove();
   };
 
-  cardElement.addEventListener("click", handleLike);
+  buttonLike.addEventListener("click", handleLike);
   deleteElement.addEventListener("click", handleDelete);
 
   return card;
@@ -87,16 +87,17 @@ initialCards.forEach((element) => {
 });
 
 buttonOpenEditProfilePopup.addEventListener("click", () => {
-  const formEdit = profilePopupForm.querySelector(".popup__form_edit");
+  profilePopupForm.querySelector(".popup__form_edit");
 
   openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   detailInput.value = profileDetail.textContent;
-  toggleButtonState(formEdit, validationConfig);
+  //toggleButtonState(inputs, submitButton, validationConfig);
+  toggleButtonState(profilePopupForm, profilePopup, validationConfig);
 
-  inputs.forEach((input) => {
-    const errElement = document.querySelector(`#err-${input.id}`);
-    setInputInvalidState(input, errElement);
+  inputs.forEach((nameInput) => {
+    const errElement = document.querySelector(`#err-${nameInput.id}`);
+    setInputInvalidState(nameInput, errElement, validationConfig);
   });
 });
 
@@ -110,6 +111,7 @@ profilePopupForm.addEventListener("submit", (event) => {
 buttonAdd.addEventListener("click", () => {
   popupAddForm.reset();
   openPopup(popupAdd);
+//  toggleButtonState(inputs, submitButton, validationConfig);
   toggleButtonState(popupAddForm, validationConfig);
 });
 
