@@ -1,5 +1,5 @@
 import { initialCards, validationConfig } from "./arrElements.js";
-import { setInputInvalidState, toggleButtonState } from "./validate.js";
+import { setInputValidState } from "./validate.js";
 
 const buttonOpenEditProfilePopup = document.querySelector(".profile__edit-button");
 const profilePopup = document.querySelector(".popup_type_edit-profile");
@@ -87,17 +87,14 @@ initialCards.forEach((element) => {
 });
 
 buttonOpenEditProfilePopup.addEventListener("click", () => {
-  profilePopupForm.querySelector(".popup__form_edit");
 
   openPopup(profilePopup);
   nameInput.value = profileName.textContent;
   detailInput.value = profileDetail.textContent;
-  //toggleButtonState(inputs, submitButton, validationConfig);
-  toggleButtonState(profilePopupForm, profilePopup, validationConfig);
 
   inputs.forEach((nameInput) => {
     const errElement = document.querySelector(`#err-${nameInput.id}`);
-    setInputInvalidState(nameInput, errElement, validationConfig);
+    setInputValidState(nameInput, errElement, validationConfig);
   });
 });
 
@@ -111,8 +108,6 @@ profilePopupForm.addEventListener("submit", (event) => {
 buttonAdd.addEventListener("click", () => {
   popupAddForm.reset();
   openPopup(popupAdd);
-//  toggleButtonState(inputs, submitButton, validationConfig);
-  toggleButtonState(popupAddForm, validationConfig);
 });
 
 const handleCardFormSubmit = (event) => {

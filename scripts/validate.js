@@ -13,7 +13,7 @@ const setInputValidState = (input, errElement, validationConfig) => {
 };
 
 function checkInputValidity(input, validationConfig) {
-const errElement = document.querySelector(`#err-${input.id}`);
+  const errElement = document.querySelector(`#err-${input.id}`);
   if (input.checkValidity()) {
     setInputValidState(input, errElement, validationConfig);
   } else {
@@ -31,8 +31,8 @@ const enableButton = (button, validationConfig) => {
   button.classList.remove(validationConfig.inactiveButtonClass);
 };
 
-const toggleButtonState = (inputs, submitButton, validationConfig) => {
-  if (inputs.checkValidity()) {
+const toggleButtonState = (form, submitButton, validationConfig) => {
+  if (form.checkValidity()) {
     enableButton(submitButton, validationConfig);
   } else {
     disableButton(submitButton, validationConfig);
@@ -40,16 +40,20 @@ const toggleButtonState = (inputs, submitButton, validationConfig) => {
 };
 
 const setEventListeners = (form, validationConfig) => {
-  const inputs = Array.from(form.querySelectorAll(validationConfig.inputSelector));
-  const submitButton = form.querySelector(validationConfig.submitButtonSelector);
+  const inputs = Array.from(
+    form.querySelectorAll(validationConfig.inputSelector)
+  );
+  const submitButton = form.querySelector(
+    validationConfig.submitButtonSelector
+  );
 
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       checkInputValidity(input, validationConfig);
-      toggleButtonState(inputs, submitButton, validationConfig);
+      toggleButtonState(form, submitButton, validationConfig);
     });
   });
-}
+};
 
 function enableValidation(validationConfig) {
   const forms = document.querySelectorAll(validationConfig.formSelector);
@@ -61,4 +65,4 @@ function enableValidation(validationConfig) {
 
 enableValidation(validationConfig);
 
-export { setInputInvalidState, toggleButtonState };
+export { setInputValidState };
